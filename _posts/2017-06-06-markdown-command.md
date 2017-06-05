@@ -165,8 +165,8 @@ Link: [Google](https://google.com, "google link")
 
 * 자동연결
 ```
-<http://example.com/>
-<address@example.com>
+syntax: <http://example.com/>
+syntax: <address@example.com>
 ```
 <http://example.com/>
 <address@example.com>
