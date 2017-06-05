@@ -168,7 +168,6 @@ Link: [Google](https://google.com, "google link")
 <http://example.com/>
 <address@example.com>
 ```
-
 <http://example.com/>
 <address@example.com>
 
