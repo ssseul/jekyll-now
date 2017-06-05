@@ -1,5 +1,5 @@
 ---
-title: Git Command
+title: Git Command 정리
 layout: post
 ---
 # Git 자주 사용하는 명령어
