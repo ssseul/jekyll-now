@@ -3,7 +3,7 @@ title: Git Command
 layout: post
 ---
 # Git 자주 사용하는 명령어
-=============
+---------------------------------------
 Git 에서 자주 사용하는 명령어를 정리.
 ### 환경 설정
     > git config --global user.name "사용자명" 
