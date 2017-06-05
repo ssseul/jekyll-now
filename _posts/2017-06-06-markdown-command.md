@@ -168,6 +168,7 @@ Link: [Google](https://google.com, "google link")
 <address@example.com>
 
 ## 2.7. 강조
+
 ```
 *single asterisks*
 _single underscores_
@@ -184,6 +185,7 @@ __double underscores__
 ~~cancelline~~
 
 ## 2.8. 이미지
+
 ```
 ![Alt text](/path/to/img.jpg)
 ![Alt text](/path/to/img.jpg "Optional title")
