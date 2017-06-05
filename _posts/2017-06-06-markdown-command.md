@@ -182,3 +182,15 @@ _single underscores_
 __double underscores__
 ++underline++
 ~~cancelline~~
+
+## 2.8. 이미지
+```
+![Alt text](/path/to/img.jpg)
+![Alt text](/path/to/img.jpg "Optional title")
+```
+![Large example image](/archive/KakaoTalk_20170606_012448033.jpg "Large example image")
+![Large example image](/archive/KakaoTalk_20170606_012448346.jpg "Large example image")
+![Medium example image](/archive/KakaoTalk_20170606_012719090.jpg "Medium example image")
+![Small example image](/archive/KakaoTalk_20170606_012856049.jpg "Small example image")
+
+이미지는 html로 변환시에 자동으로 max-width 속성이 100%로 지정되므로 사이즈 조절 기능이 필요 하므로 ```<img width="" height=""></img>```를 이용한다.
