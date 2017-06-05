@@ -1,23 +1,82 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# # # # # # # # # # # # #
+#   K i k o - p l u s   #
+# # # # # # # # # # # # #
 
-# Site settings
-title: Yiseul's GitHub
-description: 'Yiseul's GitHub Blog' # write a nice description for your blog
-baseurl: '' # the subpath of your site, e.g. /blog
-url: 'http://ssseul.github.io' # the base hostname & protocol for your site http://www.example.com
-# google_analytics: 'UA-XXXXXX-X'
-# twitter_username: 'twitter_username'
+# Basic
+name:               "Yiseul's GitHub Blog"
 
-# Build settings
-markdown: kramdown
+author:
+  github:           ssseul
+  googlePlus:       your-id
+  instagram:        yiseul28
+  email:            your-id@your-email.com
 
-permalink: '/:title/'
+copyright:
+  year:             2017
+  name:             Kiko
 
-gems: [jekyll-paginate]
+# Google-analytics
+google-analytics:
+  id:               ""
 
-paginate: 10
+# Disqus
+disqus:
+  id:               "kiko-plus"
+
+# URL
+url:                "https://ssseul.github.io" # the base hostname & protocol for your site
+# url:                "http://localhost:4000" # use this url when you develop
+baseurl:            "" # the subpath of your site, e.g. /blog
+
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           Asia/Seoul
+permalink:          /:year-:month-:day/:title/
+
+# Pagination
+paginate:           5
+paginate_path:      /page:num/
+
+# Markdown
+markdown:           kramdown
+kramdown:
+  input:            GFM
+
+# Navigation
+nav:
+  - name:           "About"
+    url:            "/about"
+  - name:           "Archive"
+    url:            "/archive"
+  - name:           "Tags"
+    url:            "/tags"
+  - name:           "Github"
+    url:            "https://github.com/AWEEKJ/Kiko-plus"
+
+# Sass
+sass:
+  sass_dir:         _sass
+  style:            :compressed
+
+# Scopes
+defaults:
+  -
+    scope:
+      path:         ""
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      path:         ""
+      type:         "posts"
+    values:
+      layout:       "post"
+
+# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
+gems:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-admin
+
+exclude:            [vendor]
