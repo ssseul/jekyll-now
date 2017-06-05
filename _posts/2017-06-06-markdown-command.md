@@ -1,9 +1,9 @@
----
-title: markdown command 정리
-layout: post
----
-# 2. 마크다운 사용법(문법)
-## 2.1. 헤더Headers
+[공통] 마크다운 markdown 작성법
+======================
+
+# 마크다운 사용법(문법)
+
+## 1.1. 헤더Headers
 * 큰제목: 문서 제목
     ```
     This is an H1
@@ -37,7 +37,7 @@ layout: post
 ###### This is a H6
 ####### This is a 7.
 
-## 2.2. BlockQuote
+## 1.2. BlockQuote
 이메일에서 사용하는 ```>``` 블럭인용문자를 이용한다.
 ```
 > This is a blockqute.
@@ -53,7 +53,7 @@ layout: post
 >	code
 >	```
 
-## 2.3. 목록
+## 1.3. 목록
 ### ● 순서있는 목록(번호)
 순서있는 목록은 숫자와 점을 사용한다.
 ```
@@ -109,7 +109,7 @@ layout: post
     	+ 3단계
 			= 4단계
 
-## 2.4. 코드```<pre><code></code></pre>```
+## 1.4. 코드```<pre><code></code></pre>```
 4개의 공백 또는 하나의 탭으로 들여쓰기를 만나면 변환되기 시작하여 들여쓰지 않은 행을 만날때까지 변환이 계속된다.
 ```
 This is a normal paragraph:
@@ -123,7 +123,7 @@ This is a normal paragraph:
     This is a code block.
 end code block.
 
-## 2.5. 수평선```<hr/>```
+## 1.5. 수평선```<hr/>```
 아래 줄은 모두 수평선을 만든다. 마크다운 문서를 미리보기로 출력할 때 *페이지 나누기* 용도로 많이 사용한다.
 ```
 * * *
@@ -138,7 +138,7 @@ end code block.
 ```
 
 
-## 2.6. 링크
+## 1.6. 링크
 * 참조링크
 
 ```
@@ -167,8 +167,7 @@ Link: [Google](https://google.com, "google link")
 <http://example.com/>
 <address@example.com>
 
-## 2.7. 강조
-
+## 1.7. 강조
 ```
 *single asterisks*
 _single underscores_
@@ -184,15 +183,14 @@ __double underscores__
 ++underline++
 ~~cancelline~~
 
-## 2.8. 이미지
-
+## 1.8. 이미지
 ```
 ![Alt text](/path/to/img.jpg)
 ![Alt text](/path/to/img.jpg "Optional title")
 ```
-![Large example image](/archive/KakaoTalk_20170606_012448033.jpg "Large example image")
-![Large example image](/archive/KakaoTalk_20170606_012448346.jpg "Large example image")
-![Medium example image](/archive/KakaoTalk_20170606_012719090.jpg "Medium example image")
-![Small example image](/archive/KakaoTalk_20170606_012856049.jpg "Small example image")
+![openup_dongho_1](/archive/KakaoTalk_20170606_012448033.jpg "openup_dongho_1")
+![openup_dongho_2](/archive/KakaoTalk_20170606_012448346.jpg "openup_dongho_2")
+![selfie_dongho](/archive/KakaoTalk_20170606_012719090.jpg "selfie_dongho")
+![fire_dongho](/archive/KakaoTalk_20170606_012856049.jpg "fire_dongho")
 
-이미지는 html로 변환시에 자동으로 max-width 속성이 100%로 지정되므로 사이즈 조절 기능이 필요 하므로 ```<img width="" height=""></img>```를 이용한다.
+사이즈 조절 기능은 없기 때문에 ```<img width="" height=""></img>```를 이용한다.
