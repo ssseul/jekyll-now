@@ -172,7 +172,6 @@ syntax: <address@example.com>
 <address@example.com>
 
 
-
 ## 1.7. 강조
 ```
 *single asterisks*
@@ -188,7 +187,6 @@ _single underscores_
 __double underscores__
 ++underline++
 ~~cancelline~~
-
 
 
 ## 1.8. 이미지
