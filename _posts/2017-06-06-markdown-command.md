@@ -171,3 +171,34 @@ syntax: <address@example.com>
 <http://example.com/>
 <address@example.com>
 
+
+
+## 1.7. 강조
+```
+*single asterisks*
+_single underscores_
+**double asterisks**
+__double underscores__
+++underline++
+~~cancelline~~
+```
+*single asterisks*
+_single underscores_
+**double asterisks**
+__double underscores__
+++underline++
+~~cancelline~~
+
+
+
+## 1.8. 이미지
+```
+![Alt text](/path/to/img.jpg)
+![Alt text](/path/to/img.jpg "Optional title")
+```
+![openup_dongho_1](/archive/KakaoTalk_20170606_012448033.jpg "openup_dongho_1")
+![openup_dongho_2](/archive/KakaoTalk_20170606_012448346.jpg "openup_dongho_2")
+![selfie_dongho](/archive/KakaoTalk_20170606_012719090.jpg "selfie_dongho")
+![fire_dongho](/archive/KakaoTalk_20170606_012856049.jpg "fire_dongho")
+
+사이즈 조절 기능은 없기 때문에 ```<img width="" height=""></img>```를 이용한다.
