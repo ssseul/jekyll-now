@@ -165,8 +165,8 @@ Link: [Google](https://google.com, "google link")
 
 * 자동연결
 ```
-syntax: <http://example.com/>
-syntax: <address@example.com>
+syntax : <http://example.com/>
+syntax : <address@example.com>
 ```
 <http://example.com/>
 <address@example.com>
@@ -191,8 +191,8 @@ __double underscores__
 
 ## 1.8. 이미지
 ```
-![Alt text](/path/to/img.jpg)
-![Alt text](/path/to/img.jpg "Optional title")
+syntax : ![Alt text](/path/to/img.jpg)
+syntax : ![Alt text](/path/to/img.jpg "Optional title")
 ```
 ![openup_dongho_1](/archive/KakaoTalk_20170606_012448033.jpg "openup_dongho_1")
 ![openup_dongho_2](/archive/KakaoTalk_20170606_012448346.jpg "openup_dongho_2")
