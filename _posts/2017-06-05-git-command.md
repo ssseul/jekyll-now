@@ -7,41 +7,41 @@ layout: post
 Git 에서 자주 사용하는 명령어를 정리.
 
 ### 환경 설정
-	git config --global user.name "사용자명" 
+	> git config --global user.name "사용자명" 
 	사용자를 등록하는 명령어(필수)
-	git config --global user.email "이메일주소" 
+	> git config --global user.email "이메일주소" 
 	이메일 주소를 등록하는 명령어(필수)
-	git config --global --list 
+	> git config --global --list 
 	현재 설정정보를 조회.
 	
-```global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.```
+	global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
 	
-![git_1](/archive/git_1.PNG")    
+![git_1](/archive/git_1.PNG "git_1")    
 
 ### 기본적인 명령어
-```git --version
-현재 Git의 버전을 조회.
-```
-![git_2](/archive/git_2.PNG")
+	git --version
+	현재 Git의 버전을 조회.
+
+![git_2](/archive/git_2.PNG "git_2")    
 	> git init
 	현재 디렉토리에 Git 저장소를 생성.
 
 	> git add [-i,-p] 파일명
 	> git add --all
-	![git_3](/archive/git_3.PNG")
-	![git_4](/archive/git_4.PNG")
+![git_3](/archive/git_3.PNG "git_3")
+![git_4](/archive/git_4.PNG "git_4")
 	파일은 생성 또는 변경 했지만 반영이 되지 않은 파일들을 스테이징 영역에 추가.
     -i 옵션을 설정하여 명령어 실행 시 대화형모드가 시작되며 파일의 일부만 선택해서 스테이징 영역에 추가.
     -p 옵션을 사용하여 명령어 실행 시 -i 대화형모드없이 바로 패치모드를 사용이 가능.
     --all 옵션을 사용하여 명령어 실행 시 생성/변경된 모든 파일을 스테이징 영역에 추가.
 
 	> git commit -m "커밋메시지"
-	![git_5](/archive/git_5.PNG")
+![git_5](/archive/git_5.PNG  "git_5")
 	스테이징 영역에 올라가 있는 파일들을 커밋. 
 	-m 옵션은 커밋메시지를 주는 옵션으로 여러 줄의 커밋메시지를 쓸 경우 -m 을 여러 개 사용. 
 
 	> git status
-	![git_5](/archive/git_6.PNG")
+![git_6](/archive/git_6.PNG  "git_6")
 	커밋되지 않은 변경사항을 조회.
 
 ### Branch와 Tag에 사용되는 명령어
