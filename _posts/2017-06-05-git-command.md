@@ -16,7 +16,7 @@ Git 에서 자주 사용하는 명령어를 정리.
 	
 	global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
 	
-![git_1](/archive/git_1.PNG "git_1")    
+![openup_dongho_1](/archive/KakaoTalk_20170606_012448033.jpg "openup_dongho_1")
 
 ### 기본적인 명령어
 	git --version
