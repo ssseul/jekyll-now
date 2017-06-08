@@ -128,6 +128,7 @@ Git 에서 자주 사용하는 명령어를 정리.
 	파라미터를 주지 않으면 origin 저장소에 Push 하며, 현재 지역브랜치와 같은 이름의 브랜치에 Push 합니다. 
 	--dry-run 옵션을 사용하면 푸싱된 변경사항을 조회 가능. 
 	로컬에서 tag를 달았을 경우에 기본적으로 Push 하지 않으므로, git push origin 태그명이나 모든 태그를 올리기 위해서 git push origin --tags를 사용.
+![git_7](/archive/git_7.PNG  "git_7")	
 
 	> git remote add 이름 저장소주소
 	새로운 원격 저장소를 추가.
