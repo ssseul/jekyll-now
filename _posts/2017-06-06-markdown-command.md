@@ -51,7 +51,7 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
 >	> This is a second blockqute.
 >	>	> This is a third blockqute.
 
-이 안에서는 다른 마크다운 요소를 포함할 수 있다.
+이 안에서는 다른 마크다운 요소를 포함.
 > ### This is a H3
 > * List
 >	```
@@ -60,7 +60,7 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
 
 ## 1.3. 목록
 ### ● 순서있는 목록(번호)
-순서있는 목록은 숫자와 점을 사용한다.
+순서있는 목록은 숫자와 점을 사용.
 ```
 1. 첫번째
 2. 두번째
@@ -70,7 +70,7 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
 2. 두번째
 3. 세번째
 
-**현재까지는 어떤 번호를 입력해도 순서는 내림차순으로 정의된다.**
+**현재까지는 어떤 번호를 입력해도 순서는 내림차순으로 정의.**
 ```
 1. 첫번째
 3. 세번째
@@ -79,8 +79,6 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
 1. 첫번째
 3. 세번째
 2. 두번째
-
-딱히 개선될 것 같지는 않다. 존 그루버가 신경안쓰고 있다고...
 
 ### ● 순서없는 목록(글머리 기호)
 ```
@@ -108,14 +106,7 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
   - 녹색
     - 파랑
 
-혼합해서 사용하는 것도 가능하다(내가 선호하는 방식)
-* 1단계
-	- 2단계
-    	+ 3단계
-			= 4단계
-
 ## 1.4. 코드```<pre><code></code></pre>```
-4개의 공백 또는 하나의 탭으로 들여쓰기를 만나면 변환되기 시작하여 들여쓰지 않은 행을 만날때까지 변환이 계속된다.
 ```
 This is a normal paragraph:
 
@@ -129,7 +120,7 @@ This is a normal paragraph:
 end code block.
 
 ## 1.5. 수평선```<hr/>```
-아래 줄은 모두 수평선을 만든다. 마크다운 문서를 미리보기로 출력할 때 *페이지 나누기* 용도로 많이 사용한다.
+아래 줄은 모두 수평선을 만든다. 마크다운 문서를 미리보기로 출력할 때 *페이지 나누기* 용도로 많이 사용.
 ```
 * * *
 
@@ -198,5 +189,3 @@ syntax : ![Alt text](/path/to/img.jpg "Optional title")
 ![openup_dongho_2](/archive/KakaoTalk_20170606_012448346.jpg "openup_dongho_2")
 ![selfie_dongho](/archive/KakaoTalk_20170606_012719090.jpg "selfie_dongho")
 ![fire_dongho](/archive/KakaoTalk_20170606_012856049.jpg "fire_dongho")
-
-사이즈 조절 기능은 없기 때문에 ```<img width="" height=""></img>```를 이용한다.

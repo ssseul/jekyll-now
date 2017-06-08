@@ -7,16 +7,15 @@ layout: post
 Git 에서 자주 사용하는 명령어를 정리.
 
 ### 환경 설정
-    > git config --global user.name "사용자명" 
-    사용자를 등록하는 명령어(필수)
-    > git config --global user.email "이메일주소" 
-    이메일 주소를 등록하는 명령어(필수)
-    > git config --global --list 
-    현재 설정정보를 조회.
-
-	![git_1](/archive/git_1.PNG")
-    --global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
-     
+```git config --global user.name "사용자명" 
+사용자를 등록하는 명령어(필수)
+git config --global user.email "이메일주소" 
+이메일 주소를 등록하는 명령어(필수)
+git config --global --list 
+현재 설정정보를 조회.
+![git_1](/archive/git_1.PNG")    
+--global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
+```
 ### 기본적인 명령어
 	> git --version
 	![git_2](/archive/git_2.PNG")
@@ -40,7 +39,7 @@ Git 에서 자주 사용하는 명령어를 정리.
 	-m 옵션은 커밋메시지를 주는 옵션으로 여러 줄의 커밋메시지를 쓸 경우 -m 을 여러 개 사용. 
 
 	> git status
-	![git_6](/archive/git_6.PNG")
+	![git_5](/archive/git_6.PNG")
 	커밋되지 않은 변경사항을 조회.
 
 ### Branch와 Tag에 사용되는 명령어
