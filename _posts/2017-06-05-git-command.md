@@ -7,21 +7,22 @@ layout: post
 Git 에서 자주 사용하는 명령어를 정리.
 
 ### 환경 설정
-```git config --global user.name "사용자명" 
-사용자를 등록하는 명령어(필수)
-git config --global user.email "이메일주소" 
-이메일 주소를 등록하는 명령어(필수)
-git config --global --list 
-현재 설정정보를 조회.
---global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
-```
-![git_1](/archive/git_1.PNG")    
+	```git config --global user.name "사용자명" 
+	사용자를 등록하는 명령어(필수)
+	git config --global user.email "이메일주소" 
+	이메일 주소를 등록하는 명령어(필수)
+	git config --global --list 
+	현재 설정정보를 조회.
+	
+	global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
+	```
+	![git_1](/archive/git_1.PNG")    
 
 ### 기본적인 명령어
-	> git --version
-	![git_2](/archive/git_2.PNG")
-    현재 Git의 버전을 조회.
-
+```git --version
+현재 Git의 버전을 조회.
+```
+![git_2](/archive/git_2.PNG")
 	> git init
 	현재 디렉토리에 Git 저장소를 생성.
 
