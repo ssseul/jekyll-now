@@ -8,7 +8,7 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
 
 # 마크다운 사용법(문법)
 
-## 1.1. 헤더Headers
+## 1.1. 타이틀
 * 큰제목: 문서 제목
     ```
     This is an H1
@@ -43,7 +43,7 @@ GitHub에서 자주 사용 되는 Markdown 문법을 정리
 ####### This is a 7.
 
 ## 1.2. BlockQuote
-이메일에서 사용하는 ```>``` 블럭인용문자를 이용한다.
+이메일에서 사용하는 ```>``` 블럭인용문자를 이용.
 ```
 > This is a blockqute.
 ```
