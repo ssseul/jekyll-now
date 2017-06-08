@@ -16,7 +16,7 @@ Git 에서 자주 사용하는 명령어를 정리.
 	
 	global은 전역설정에 대한 옵션이며, 현재 저장소만 적용할 때는 부여하지 않음.
 	
-![openup_dongho_1](/archive/KakaoTalk_20170606_012448033.jpg "openup_dongho_1")
+![git_1](/archive/git_1.PNG "git_1")    
 
 ### 기본적인 명령어
 	git --version
@@ -140,21 +140,6 @@ Git 에서 자주 사용하는 명령어를 정리.
 
 	> git remote rm 이름
 	원격저장소를 제거.
-
-
-### 서브모듈
-	> git submodule
-	연관된 하위모듈을 확인.
-
-	> git submodule add 저장소주소 서브모듈경로
-	새로운 하위모듈을 해당경로에 추가하며, 초기화 되지는 않으므로 커밋 해쉬 앞에 '-' 로 표시됨.
-
-	> git submodule init 서브모듈경로
-	서브모듈을 초기화.
-
-	> git submodule update 서브모듈경로
-	서브모듈의 변경사항을 적용.(저장소의 최신커밋을 추적하지 않음)
-
 
 ### 기타 명령어
 	> git archive --format=tar --prefix=폴더명/ 브랜치혹은태그 | gzip > 파일명.tar.gz
