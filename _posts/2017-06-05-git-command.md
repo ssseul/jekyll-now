@@ -45,7 +45,9 @@ Git 에서 자주 사용하는 명령어를 정리.
 	-m 옵션은 커밋메시지를 주는 옵션으로 여러 줄의 커밋메시지를 쓸 경우 -m 을 여러 개 사용. 
 
 	> git status
-![git_6](/archive/git_6.PNG  "git_6")
+
+	![git_6](/archive/git_6.PNG  "git_6")
+	
 	커밋되지 않은 변경사항을 조회.
 
 ### Branch와 Tag에 사용되는 명령어
@@ -132,7 +134,8 @@ Git 에서 자주 사용하는 명령어를 정리.
 	파라미터를 주지 않으면 origin 저장소에 Push 하며, 현재 지역브랜치와 같은 이름의 브랜치에 Push 합니다. 
 	--dry-run 옵션을 사용하면 푸싱된 변경사항을 조회 가능. 
 	로컬에서 tag를 달았을 경우에 기본적으로 Push 하지 않으므로, git push origin 태그명이나 모든 태그를 올리기 위해서 git push origin --tags를 사용.
-![git_7](/archive/git_7.PNG  "git_7")	
+
+	![git_7](/archive/git_7.PNG  "git_7")	
 
 	> git remote add 이름 저장소주소
 	새로운 원격 저장소를 추가.
