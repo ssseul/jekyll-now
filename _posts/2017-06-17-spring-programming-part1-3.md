@@ -68,7 +68,7 @@ Spring Programming의 Chapter 1~3 에서 중요한 부분 정리
 
 의존(Dependency)를 처리하기 위한 설계 패턴으로, 스프링에서는 기본적으로 DI 기반으로 동작
 
-### 의존(Dependency) 객체 생성
+#### 의존(Dependency) 객체 생성
 기능을 실행하기 위해 다른 클래스(타입)를 필요로 할 때 **의존(Dependency)** 한다고 한다.
 
 * 의존하는 타입을 로컬 변수 'br' 로 정의
@@ -134,7 +134,7 @@ public static void main(String[] args){
 	}
 }
 
-### 의존 객체를 직접 생성하는 방식의 단점 
+#### 의존 객체를 직접 생성하는 방식의 단점 
 * 의존 객체를 직접 생성하는 방식의 코드
 ```java
 private class FileEncrytor{
@@ -159,7 +159,7 @@ private class FileEncrytor{
 
 의존객체를 직접 생성하는 방식은 개발 효율을 낮추는 상황을 만들거나 변경하는 클래스의 객체를 사용해야 하는 코드가 많으면 많을 수록 비례해서 변경해주어야 하는 코드의 양도 증가한다.
 
-### DI를 사용하는 방식의 코드 : 의존 객체를 외부에서 조립함
+#### DI를 사용하는 방식의 코드 : 의존 객체를 외부에서 조립함
 
 DI는 의존 객체를 **외부로 부터 전달**받는 구현방식으로 **생성자**를 이용해서 의존 객체를 전달 받는 방식이 DI에 따라 구현한 것
 
@@ -234,9 +234,9 @@ public class Assembler{
 	
 ** 의존하는 클래스의 구현이 완성되어 있지 않더라도 테스트가 가능하다는 장점이 있다.**
 
-### DI에서 의존 객체 전달 방법 : 생성자 방식과 프로퍼티 설정 방식
+#### DI에서 의존 객체 전달 방법 : 생성자 방식과 프로퍼티 설정 방식
 
-#### 1. 생성자 생성 방식
+##### 1. 생성자 생성 방식
 ```java
 public class FileEncryptor{
 	private Encryptor encryptor;
@@ -267,7 +267,7 @@ fileEnc.encrypt(src, target);
 * 생성자 방식의 단점은 생성자에 전달되는 파라미터 이름으로는 실제 타입을 알아내기 어렵고, 생성자에게 전달되는 파라미터가 증가될수록 코드 가독성이 저하된다.
 
 
-#### 2. 프로퍼티 설정 방식
+##### 2. 프로퍼티 설정 방식
 의존 객체를 전달받기 위해 메서드를 이용하며, 자바빈(JavaBeans)의 영향으로 setPropertyName()형식의 메서드를 주로 사용
 ```java
 public class FileEncryptor{
@@ -287,7 +287,29 @@ fileEnc.setEncryptor(enc);
 ```
 * 프로퍼티 설정 방식의 단점은 객체를 생성한 뒤에 의존 객체가 모두 설정되었다는 보장이 없으므로 사용 가능하지 않는 상태일 가능성이 존재한다.
 
+### 스프링은 객체를 생성하고 연결해주는 DI 컨테이너
 
+**DI : 스프링의 핵심 기능 중의 하나**
+**스프링은 객체를 생성하고 각각의 객체를 연결해주는 조립기 역할을 하게 된다.**
 
+```java
+String configLocation = "classpath:applicationContext.xml";
+AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+Project project = ctx.getBean("sampleProject", Project.class);
+project.build();
+ctx.close();
+```
+* GenericXmlApplicationContext
+조립기 기능을 구현한 클래스이며, 조립기에서 생성할 객체가 뭔지, 각 객체를 어떻게 연결하는 지에 대한 정보는 **XML 파일**에 정의 되어있다. XML 파일에 정의된 설정 정보를 읽어봐 객체를 생성하고 각각의 객체를 연결한 뒤에 내부적으로 보관한다. 이렇게 **생성한 객체를 보관하기 때문에 스프링은 객체 컨테이너(Object Container)** 라고도 한다.
 
+XML을 이용한 스프링 설정은 컨테이너가 생성할 객체를 지정하기 위해 <bean> 태크를 사용하는데, 스프링 컨테이너가 생성해서 보관하는 객체를 스프링 빈(Spring Bean) 객체라고 부르며, 일반적인 자바 객체와 동일하다
 
+![spring_1](/archive/spring_1.PNG "spring_1")
+
+** 스프링 설정으로부터 스프링 컨테이너를 만들고, 컨테이너는 설정에 명시한 스프링 빈 객체를 생성해서 지정한 이름으로 보관
+
+스프링 컨테이너는 생성한 빈 객체를 <이름, 빈 객체> 쌍으로 보관하며, 스프링 컨테이너가 보관하고 있는 객체를 사용할 경우, 빈 객체와 연결된 이름을 이용해서 객체를 참조하면 된다.
+
+### 스프링 컨테이너 종류
+
+스프링은 **BeanFactory**와 **ApplicationContext** 두 가지 타입의 컨테이너를 제공한다.
