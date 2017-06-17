@@ -2,11 +2,11 @@
 title: Spring Programming Part1~3
 layout: post
 ---
-# Spring Programming Part 1~3 정리
+# Spring Programming Chapter 1~3 정리
 ---------------------------------------------------
-Spring Programming의 Part 1~3 에서 중요한 부분 정리 
+Spring Programming의 Chapter 1~3 에서 중요한 부분 정리 
 
-# PART 1
+# Chapter 1
 
 ## 스프링 프레임워크
 
@@ -33,7 +33,7 @@ Spring Programming의 Part 1~3 에서 중요한 부분 정리
 | :---------: | :--- |
 | **spring-beans**   | 스프링 컨테이너를 이용해서 객체를 생성하는 기본 기능을 제공한다. |
 | **spring-context** | 객체생성, 라이프사이클 처리, 스키마 확장 등의 기능을 제공한다. |
-| **spring-aop** | AOP(Aspect Oriented Programming) 기능을 제공 |
+| **spring-aop** | AOP(**Aspect Oriented Programming**) 기능을 제공 |
 | spring-web | REST 클라이언트, 데이터 변환 처리, 서블릿 필터, 파일 업로드 지원 등 웹 개발에 필요한 기반 기능을 제공한다. |
 | spring-webmvc | 스프링 기반의 MVC 프레임워크이며, 웹 어플리케이션을 개발하는데 필요한 컨트롤러, 뷰 구현을 제공한다. |
 | spring-websocket | 스프링 MVC에서 웹 ㅗ소켓 연동을 처리할 수 있도록 한다. |
@@ -50,16 +50,43 @@ Spring Programming의 Part 1~3 에서 중요한 부분 정리
 <dependencies>
  	<dependency>
  		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
- 		<version>4.0.4.RELEASE</version>
+		<artifactId>spring-webmvc</artifactId> <!-- 모듈명 -->
+ 		<version>4.0.4.RELEASE</version> <!-- 버전 -->
  	</dependency>
  	<dependency>
  		<groupId>org.springframework</groupId>
-		<artifactId>spring-orm</artifactId>
- 		<version>4.0.4.RELEASE</version>
+		<artifactId>spring-orm</artifactId> <!-- 모듈명 -->
+ 		<version>4.0.4.RELEASE</version> <!-- 버전 -->
  	</dependency>
 </dependencies>
 ```
+# Chapter 2
+
+## DI(Dependency Injection)를 이용한 객체 생성
+
+### DI(Dependency Injection)
+
+의존(Dependency)를 처리하기 위한 설계 패턴으로, 스프링에서는 기본적으로 DI 기반으로 동작
+
+### 의존(Dependency)
+기능을 실행하기 위해 다른 클래스(타입)를 필요로 할 때 **의존(Dependency)** 한다고 한다.
+
+```java
+public class FilePrinter {
+	public void print(String filePath) throws IOException{
+		// 의존하는 타입을 'br'이라는 변수로 정의
+		try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+			String line = null;
+			while((line = br.readLine()) != null){
+				System.out.println(line);
+			}
+		}
+	}
+}
+> FilePrinter 클래스 안에 있는 print 메서드를 실행하기 위해서는 BufferedReader 클래스가 필요하므로 FilePrinter 클래스가 BufferedReader 클래스에 의존한다고 말할 수 있다.
+```
+
+
 
 
 
