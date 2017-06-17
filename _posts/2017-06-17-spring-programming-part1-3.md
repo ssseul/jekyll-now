@@ -157,7 +157,7 @@ private class FileEncrytor{
 ```
 > 요구사항의 변화로 Encryptor 클래스의 하위 클래스인 FastEncryptor 클래스를 사용해야 되는 사항이 발생할 경우, FileEncryptor 클래스의 코드를 변경해야 함
 
-** 의존객체를 직접 생성하는 방식은 개발 효율을 낮추는 상황을 만들거나  변경하는 클래스의 객체를 사용해야 하는 코드가 많으면 많을 수록 비례해서 변경해주어야 하는 코드의 양도 증가한다.
+의존객체를 직접 생성하는 방식은 개발 효율을 낮추는 상황을 만들거나 변경하는 클래스의 객체를 사용해야 하는 코드가 많으면 많을 수록 비례해서 변경해주어야 하는 코드의 양도 증가한다.
 
 ### DI를 사용하는 방식의 코드 : 의존 객체를 외부에서 조립함
 
@@ -188,9 +188,104 @@ Encryptor enc = new Encryptor();
 // 의존 객체를 전달해준다.
 FileEncryptor fileEnc = new FileEncryptor(enc);
 ```
+**FileEncryptor 스스로 의존하는 객체를 생성하지 않고 외부의 누군가가 의존하는 객체를 FileEncryptor에서 넣어준다는 의미로, 이런 방식을 DI라고 하며, 또 다른 의미로는 객체를 연결한다는 표현을 쓴다.**
+
+**조립기**를 구현을 통해 객체를 생성하고 연결해주는 역할을 수행한다.
+
+* 조립기 구현 코드 
+```java
+public class Assembler{
+	private FileEncryptor fileEnc;
+	private Encryptor enc;
+
+	public Assembler(){
+		enc = new Encryptor();
+		FileEnc = new FileEncryptor(enc);
+	}
+
+	public FileEncryptor fileEncryptor(){
+		return fileEnc;
+	}
+}
+```
+
+* 조립기를 이용한 FileEncryptor 구하기
+```java
+Assembler assembler = new Assembler();
+FileEncryptor fileEnc = assembler.fileEncryptor();
+fileEnc.encrypt(srcFile, targetFile);
+```
+
+* 객체 타입이 변경된 경우
+```java
+public class Assembler{
+	private FileEncryptor fileEnc;
+	private Encryptor enc;
+
+	public Assembler(){
+		enc = new FastEncryptor();
+		FileEnc = new FileEncryptor(enc);
+	}
+
+	...
+}
+```
+> FileEncryptor 의 코드를 변경하지 않고 **조립기** 코드를 변경하면 된다.
+	
+** 의존하는 클래스의 구현이 완성되어 있지 않더라도 테스트가 가능하다는 장점이 있다.**
+
+### DI에서 의존 객체 전달 방법 : 생성자 방식과 프로퍼티 설정 방식
+
+#### 1. 생성자 생성 방식
+```java
+public class FileEncryptor{
+	private Encryptor encryptor;
+
+	// 생성자를 통해 의존 객체를 전달받음
+	public FileEncryptor(Encryptor encryptor){
+		this.encryptor = encryptor;
+	}
+}
+```
+* 생성자 방식의 장점은 **객체를 생성하는 시점에 의존하는 객체를 모두 전달**받을 수 있다. 전달받은 파라미터가 정상인지 확인하는 코드를 생성자에 추가할 경우, 객체 생성 이후 해당 객체가 사용 가능 상태임을 보장 받을 수 있다.
+```java
+// 객체 생성 시점에 의존 객체가 정상인지 확인
+public class FileEncryptor{
+	public FileEncryptor(Encryptor enc){
+		if(enc == null){
+			throw new IllegalArgumentException();
+			this.encryptor = enc;
+		}
+	}
+	...
+}
+
+// FileEncryptor가 정상적으로 생성되면, FileEncryptor 객체는 사용가능 상태가 됨
+FileEncryptor fileEnc = new FileEncryptor(enc);
+fileEnc.encrypt(src, target);
+```
+* 생성자 방식의 단점은 생성자에 전달되는 파라미터 이름으로는 실제 타입을 알아내기 어렵고, 생성자에게 전달되는 파라미터가 증가될수록 코드 가독성이 저하된다.
 
 
+#### 2. 프로퍼티 설정 방식
+의존 객체를 전달받기 위해 메서드를 이용하며, 자바빈(JavaBeans)의 영향으로 setPropertyName()형식의 메서드를 주로 사용
+```java
+public class FileEncryptor{
+	private Encryptor encryptor;
 
+	// set 메서드를 통해 의존 객체를 전달받음
+	public void setEncryptor(Encryptor encryptor){
+		this.encryptor = encryptor;
+	}
+}
+```
+* 프로퍼티 설정 방식의 장점은 어떤 의존 객체를 설정하는 지 메서드 명으로 알 수 있다는 점이다.
+```java
+FileEncryptor fileEnc = new FileEncryptor()
+// enc 파라미터 타입을 확인하지 않아도 setEncryptor() 라는 프로퍼티 설정 메서드의 이름을 통해 enc가 Encryptor 객체임을 파악
+fileEnc.setEncryptor(enc);
+```
+* 프로퍼티 설정 방식의 단점은 객체를 생성한 뒤에 의존 객체가 모두 설정되었다는 보장이 없으므로 사용 가능하지 않는 상태일 가능성이 존재한다.
 
 
 
