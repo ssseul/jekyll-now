@@ -68,9 +68,10 @@ Spring Programming의 Chapter 1~3 에서 중요한 부분 정리
 
 의존(Dependency)를 처리하기 위한 설계 패턴으로, 스프링에서는 기본적으로 DI 기반으로 동작
 
-### 의존(Dependency)
+### 의존(Dependency) 객체 생성
 기능을 실행하기 위해 다른 클래스(타입)를 필요로 할 때 **의존(Dependency)** 한다고 한다.
 
+* 의존하는 타입을 로컬 변수 'br' 로 정의
 ```java
 public class FilePrinter {
 	public void print(String filePath) throws IOException{
@@ -84,7 +85,108 @@ public class FilePrinter {
 	}
 }
 ```
-> FilePrinter 클래스 안에 있는 print 메서드를 실행하기 위해서는 BufferedReader 클래스가 필요하므로 **FilePrinter 클래스가 BufferedReader 클래스에 의존**한다고 말할 수 있다.
+> FilePrinter 클래스 안에 있는 print 메서드를 실행하기 위해서는 BufferedReader 클래스가 필요하기 때문에 **FilePrinter 클래스가 BufferedReader 클래스에 의존**한다고 말할 수 있다.
+
+* 의존 객체를 필드(encryptor)로 정의 --> 의존객체를 직접 생성하는 방식
+```java
+private class FileEncrytor{
+	// 의존 객체를 필드(encryptor)로 정의
+	private Encryptor encryptor = new Encryptor();
+
+	public void encryt(File src, File target) throws IOException{
+		try(FileInputStream is = new FileInputStream(src);
+			FileOutputStream out = new FileOutPutStream(target)){
+				byte[] data = new byte[512];
+				int len = -1;
+				while((len = is.read(data)) != -1){
+					encryptor.encrypt(data, 0, len);
+					out.write(data, 0, len);
+				}
+			}
+		)
+	}
+}
+```
+
+* 의존 객체를 생성하지 않고 외부에서 전달 받은 경우 생성자의 파라미터를 이용하여 의존 하는 타입의 객체를 전달받을 수 있다.
+```java
+public class FileEncryptor{
+	private Encryptor encryptor;
+
+	// 의존하는 타입의 객체를 생성자의 파라미터를 통해 전달 받음
+	public FileEncryptor(Encryptor enc){
+		this.encryptor = enc;
+	}
+	...
+}
+```
+> 생성자의 파라미터를 통해 의존 객체를 전달받은 경우, FileEncryptor 객체를 생성할 때 의존하는 객체를 생성자의 파라미터로 전달해야 한다.
+```java
+public static void main(String[] args){
+	Encryptor enc = new Encryptor();
+	FileEncryptor fileEncryptor = new FileEncryptor(enc);
+
+	try{
+		fileEncryptor.encrypt(New File(args[0]), new File(args[1]));
+	}catch(IOException ex){
+		// 예외처리
+	}
+}
+
+### 의존 객체를 직접 생성하는 방식의 단점 
+* 의존 객체를 직접 생성하는 방식의 코드
+```java
+private class FileEncrytor{
+	// 의존 객체를 필드(encryptor)로 정의
+	private Encryptor encryptor = new Encryptor();
+
+	public void encryt(File src, File target) throws IOException{
+		try(FileInputStream is = new FileInputStream(src);
+			FileOutputStream out = new FileOutPutStream(target)){
+				byte[] data = new byte[512];
+				int len = -1;
+				while((len = is.read(data)) != -1){
+					encryptor.encrypt(data, 0, len);
+					out.write(data, 0, len);
+				}
+			}
+		)
+	}
+}
+```
+> 요구사항의 변화로 Encryptor 클래스의 하위 클래스인 FastEncryptor 클래스를 사용해야 되는 사항이 발생할 경우, FileEncryptor 클래스의 코드를 변경해야 함
+
+** 의존객체를 직접 생성하는 방식은 개발 효율을 낮추는 상황을 만들거나  변경하는 클래스의 객체를 사용해야 하는 코드가 많으면 많을 수록 비례해서 변경해주어야 하는 코드의 양도 증가한다.
+
+### DI를 사용하는 방식의 코드 : 의존 객체를 외부에서 조립함
+
+DI는 의존 객체를 **외부로 부터 전달**받는 구현방식으로 **생성자**를 이용해서 의존 객체를 전달 받는 방식이 DI에 따라 구현한 것
+
+```java
+public class FileEncryptor{
+	private Encryptor encryptor;
+
+	public FileEncryptor(Encryptor encryptor){
+		// 생성자로 전달받은 객체를 필드에 할당
+		this.encryptor = encryptor;
+	}
+
+	public void encrypt(File src, File target) throws IOException{
+		...
+		// DI 방식으러 전달받은 객체를 사용
+		encryptor.encrypt(data, 0, len);
+	}
+}
+```
+> FileEncryptor 클래스는 Encryptor 타입의 객체를 필요로 하는데 **생성자**를 통해서 Encryptor 타입의 객체를 전달받고 있다.
+FileEncryptor 객체를 생성하는 부분에서 Encryptor 객체를 전달해 주어야 함을 뜻한다.
+
+```java
+// 다른 코드에서 의존 객체를 생성
+Encryptor enc = new Encryptor();
+// 의존 객체를 전달해준다.
+FileEncryptor fileEnc = new FileEncryptor(enc);
+```
 
 
 
