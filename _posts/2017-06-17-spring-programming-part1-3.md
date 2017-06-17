@@ -247,7 +247,9 @@ public class FileEncryptor{
 	}
 }
 ```
+
 * 생성자 방식의 장점은 **객체를 생성하는 시점에 의존하는 객체를 모두 전달**받을 수 있다. 전달받은 파라미터가 정상인지 확인하는 코드를 생성자에 추가할 경우, 객체 생성 이후 해당 객체가 사용 가능 상태임을 보장 받을 수 있다.
+
 ```java
 // 객체 생성 시점에 의존 객체가 정상인지 확인
 public class FileEncryptor{
@@ -266,9 +268,9 @@ fileEnc.encrypt(src, target);
 ```
 * 생성자 방식의 단점은 생성자에 전달되는 파라미터 이름으로는 실제 타입을 알아내기 어렵고, 생성자에게 전달되는 파라미터가 증가될수록 코드 가독성이 저하된다.
 
-
 ##### 2. 프로퍼티 설정 방식
 의존 객체를 전달받기 위해 메서드를 이용하며, 자바빈(JavaBeans)의 영향으로 setPropertyName()형식의 메서드를 주로 사용
+
 ```java
 public class FileEncryptor{
 	private Encryptor encryptor;
@@ -279,6 +281,7 @@ public class FileEncryptor{
 	}
 }
 ```
+
 * 프로퍼티 설정 방식의 장점은 어떤 의존 객체를 설정하는 지 메서드 명으로 알 수 있다는 점이다.
 ```java
 FileEncryptor fileEnc = new FileEncryptor()
