@@ -317,4 +317,4 @@ XML을 이용한 스프링 설정은 컨테이너가 생성할 객체를 지정�
 
 스프링은 **BeanFactory**와 **ApplicationContext** 두 가지 타입의 컨테이너를 제공한다.
 
-![spring_1](/archive/spring_1.PNG "spring_1")
+![spring_2](/archive/spring_2.PNG "spring_2")
