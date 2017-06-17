@@ -1,5 +1,5 @@
 ---
-title: Spring Programming Part1~3
+title: spring programming chapter 2
 layout: post
 ---
 # Spring Programming Chapter 2 정리
