@@ -46,7 +46,7 @@ Git 에서 자주 사용하는 명령어를 정리.
 
 	> git status
 
-	![git_6](/archive/git_6.PNG  "git_6")
+![git_6](/archive/git_6.PNG  "git_6")
 	
 	커밋되지 않은 변경사항을 조회.
 
@@ -135,7 +135,7 @@ Git 에서 자주 사용하는 명령어를 정리.
 	--dry-run 옵션을 사용하면 푸싱된 변경사항을 조회 가능. 
 	로컬에서 tag를 달았을 경우에 기본적으로 Push 하지 않으므로, git push origin 태그명이나 모든 태그를 올리기 위해서 git push origin --tags를 사용.
 
-	![git_7](/archive/git_7.PNG  "git_7")	
+![git_7](/archive/git_7.PNG  "git_7")	
 
 	> git remote add 이름 저장소주소
 	새로운 원격 저장소를 추가.
