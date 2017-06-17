@@ -44,21 +44,22 @@ Spring Programming의 Part 1~3 에서 중요한 부분 정리
 | spring-jms | JMS 서버와 메시지를 쉽게 주고 받을 수 있도록 하기 위한 템플릿, 어노테이션 등을 제공한다. |
 | spring-context-support | 스케줄링, 메일 발송, 캐시 연동, 벨로시티 등 부가 기능을 제공한다. |
 
-> 메이븐 프로젝트에서 모듈을 사용하려면 사용할 모듈명과 버전을 의존 설정에 추가해준다.
+메이븐 프로젝트에서 모듈을 사용하려면 사용할 모듈명과 버전을 의존 설정에 추가해준다.
 
-> <dependencies>
-> 	<dependency>
-> 		<groupId>org.springframework</groupId>
->		<artifactId>spring-webmvc</artifactId>
-> 		<version>4.0.4.RELEASE</version>
-> 	</dependency>
-> 	<dependency>
-> 		<groupId>org.springframework</groupId>
->		<artifactId>spring-orm</artifactId>
-> 		<version>4.0.4.RELEASE</version>
-> 	</dependency>
-> </dependencies>
-
+```
+<dependencies>
+ 	<dependency>
+ 		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+ 		<version>4.0.4.RELEASE</version>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+ 		<version>4.0.4.RELEASE</version>
+ 	</dependency>
+</dependencies>
+```
 
 
 
