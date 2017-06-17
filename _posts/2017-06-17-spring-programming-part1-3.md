@@ -83,9 +83,8 @@ public class FilePrinter {
 		}
 	}
 }
-> FilePrinter 클래스 안에 있는 print 메서드를 실행하기 위해서는 BufferedReader 클래스가 필요하므로 FilePrinter 클래스가 BufferedReader 클래스에 의존한다고 말할 수 있다.
 ```
-
+> FilePrinter 클래스 안에 있는 print 메서드를 실행하기 위해서는 BufferedReader 클래스가 필요하므로 **FilePrinter 클래스가 BufferedReader 클래스에 의존**한다고 말할 수 있다.
 
 
 
