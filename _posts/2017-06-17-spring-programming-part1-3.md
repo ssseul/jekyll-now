@@ -121,6 +121,7 @@ public class FileEncryptor{
 }
 ```
 > 생성자의 파라미터를 통해 의존 객체를 전달받은 경우, FileEncryptor 객체를 생성할 때 의존하는 객체를 생성자의 파라미터로 전달해야 한다.
+
 ```java
 public static void main(String[] args){
 	Encryptor enc = new Encryptor();
