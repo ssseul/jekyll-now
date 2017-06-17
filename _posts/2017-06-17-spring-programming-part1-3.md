@@ -2,69 +2,15 @@
 title: Spring Programming Part1~3
 layout: post
 ---
-# Spring Programming Chapter 1~3 정리
+# Spring Programming Chapter 2 정리
 ---------------------------------------------------
-Spring Programming의 Chapter 1~3 에서 중요한 부분 정리 
+Spring Programming의 Chapter 2 에서 중요한 부분 정리 
 
-# Chapter 1
-
-## 스프링 프레임워크
-
-스프링 프리엠워크는 일반 사용자를 위한 웹 기반 어플리케이션에서 부터 기업 환경의 어플리케이션 까지 다양한 영역에서 사용되며, 스프링 팀(http://spring.io/team)은 주요 모듈의 다양한 프로젝트 개발을 진행하며, 이를 통해 개발자들에게 효율적으로 어플리케이션을 개발할 수 있도록 하고 있음.
-
-### 스프링 프로젝트 목록
-
-| 프로젝트 | 설명 |
-| :-----: | :--- |
-| 스프링 프레임워크(Spring Framework) | 스프링을 이용해서 어플리케이션을 개발할 때 기반이 되는 프레임워크이며, 핵심 기능인 DI와 AOP 기능을 제공한다. 웹 어플리케이션을 개발할 때 사용하는 스프링 MVC, 스프링 ORM 등의 기능도 스프링 프레임워크에 포함되어 있다. |
-| 스프링 데이터(Spring Data) | 데이터 연동을 위한 단일 API를 제공하며, 이 API를 기반으로 JPA, MongoDB, Neo4j, Redis 등 RDBMS와 NoSQL과의 연동을 적은 양의 코드로 처리할 수 있도록 해준다. |
-| 스프링 시큐리티(Spring Security) | 인증과 허가에 대한 기반 프레임워크 및 관련 모듈을 제공한다. 웹 어플리케이션을 위한 보안을 간단한 설정과 약간의 코드 구현으로 처리한다. |
-| 스프링 배치(Spring Batch) | 배치 처리를 위한 기반 프레임워크를 제공해준다. 데이터 처리, 흐름 제어, 실패 재처리 등 배치 처리 어플리케이션이 필요로 하는 기능을 기본으로 제공한다. |
-| 스프링 인터그레이션(Spring Integration) | 시스템 간의 연동을 위한 메시징 프레임워크를 보여준다. |
-| 스프링 소셜(Spring Social) | 트위터, 페이스북 등 소셜 네트워크 연동을 위한 기능을 제공한다. |
-
-### 스프링 프레임워크의 주요 모듈
-
-스프링 프레임워크는 제공하는 기능에 따라 별도의 모듈로 분리 되어 있는데 트랜잭션과 관련 기능을 제공하는 모듈은 spring-tx 이며, 웹 개발과 관련된 기능을 제공하는 모듈은 spring-webmvc 이다. 각각의 모듈은 jar 파일로 제공되며, 한 모듈을 사용하려면 의존된 다른 모듈이 필요한 경우도 있으므로 같이 설정해 주어야 한다.
-
-* 스프링의 주요 모듈 목록
-
-|   프로젝트   | 설명 |
-| :---------: | :--- |
-| **spring-beans**   | 스프링 컨테이너를 이용해서 객체를 생성하는 기본 기능을 제공한다. |
-| **spring-context** | 객체생성, 라이프사이클 처리, 스키마 확장 등의 기능을 제공한다. |
-| **spring-aop** | AOP(**Aspect Oriented Programming**) 기능을 제공 |
-| spring-web | REST 클라이언트, 데이터 변환 처리, 서블릿 필터, 파일 업로드 지원 등 웹 개발에 필요한 기반 기능을 제공한다. |
-| spring-webmvc | 스프링 기반의 MVC 프레임워크이며, 웹 어플리케이션을 개발하는데 필요한 컨트롤러, 뷰 구현을 제공한다. |
-| spring-websocket | 스프링 MVC에서 웹 ㅗ소켓 연동을 처리할 수 있도록 한다. |
-| spring-oxm | XML과 자바 객체 간의 매핑을 처리하기 위한 API를 제공한다. |
-| spring-tx | 트랜잭션 처리를 위한 추상 레이어를 제공한다. |
-| spring-jdbc | JDBC 프로그래밍을 보다 쉽게 할 수 있는 템플릿을 제공한다. |
-| spring-orm | 하이버네이트, JPA, MyBatis 등과의 연동을 지원한다. |
-| spring-jms | JMS 서버와 메시지를 쉽게 주고 받을 수 있도록 하기 위한 템플릿, 어노테이션 등을 제공한다. |
-| spring-context-support | 스케줄링, 메일 발송, 캐시 연동, 벨로시티 등 부가 기능을 제공한다. |
-
-메이븐 프로젝트에서 모듈을 사용하려면 사용할 모듈명과 버전을 의존 설정에 추가해준다.
-
-```
-<dependencies>
- 	<dependency>
- 		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId> <!-- 모듈명 -->
- 		<version>4.0.4.RELEASE</version> <!-- 버전 -->
- 	</dependency>
- 	<dependency>
- 		<groupId>org.springframework</groupId>
-		<artifactId>spring-orm</artifactId> <!-- 모듈명 -->
- 		<version>4.0.4.RELEASE</version> <!-- 버전 -->
- 	</dependency>
-</dependencies>
-```
 # Chapter 2
 
 ## DI(Dependency Injection)를 이용한 객체 생성
 
-### DI(Dependency Injection)
+### 1.DI(Dependency Injection)
 
 의존(Dependency)를 처리하기 위한 설계 패턴으로, 스프링에서는 기본적으로 DI 기반으로 동작
 
@@ -313,8 +259,55 @@ XML을 이용한 스프링 설정은 컨테이너가 생성할 객체를 지정�
 
 스프링 컨테이너는 생성한 빈 객체를 <이름, 빈 객체> 쌍으로 보관하며, 스프링 컨테이너가 보관하고 있는 객체를 사용할 경우, 빈 객체와 연결된 이름을 이용해서 객체를 참조하면 된다.
 
-### 스프링 컨테이너 종류
+### 2. 스프링 컨테이너 종류
 
 스프링은 **BeanFactory**와 **ApplicationContext** 두 가지 타입의 컨테이너를 제공한다.
 
+#### BeanFactory와 ApplicationContext의 관계
+
 ![spring_2](/archive/spring_2.PNG "spring_2")
+
+BeanFactory 계열의 인터페이스만 구현한 클래스는 단순히 컨테이너에서 객체를 생성하고 DI를 처리해주는 기능만 제공한다. 하지만 스프링을 사용하는 이유는 편리한 트랜잭션 처리, 자바 코드 기반 스프링 설정, 어노테이션을 이용한 빈 설정, 스프링을 이용한 웹 개발, 메세지 처리 등의 **다양한 부가 기능** 때문인데, 이러한 부가 기능을 사용하기 위해서는 **ApplicationContext** 계열을 사용해야 한다. 이런 이유로 ApplcationContext를 주로 사용하며, BeanFactory를 사용하는 경우는 매우 드물다.
+
+#### ApplicationContext 인터페이스와 관련된 클래스 계층 구조
+
+![spring_3](/archive/spring_2.PNG "spring_3")
+
+말단에 위치한 클래스가 실제로 사용되는 구현 클래스이며, 다음과 같다
+
+* GenericXmlApplicationContext : XML 파일을 설정 정보로 사용하는 스프링 컨테이너 구현 클래스이다. 독립형 어플리케이션을 개발할 때 사용된다.
+
+* AnnotationConfigApplicationContext : 자바 코드를 설정 정보로 사용하는 스프링 컨테이너이다. 독립형 어플리케이션을 개발할 때 사용된다.
+
+* GenericGroovyApplicationContext : 웹 어플리케이션을 개발할 때 사용하는 스프링 컨테이너로써 XML 파일을 설정 정보로 사용한다.
+
+* AnnotationConfigWebApplicationContext : 웹 어플리케이션을 개발할 때 사용하는 스프링 컨테이너로써 자바 코드를 설정 정보로 사용한다.
+
+GenericApplicationContext 클래스를 상속받는 3개의 클래스는 스프링 컨테이너를 코드에서 직접 생성할 때 사용된다.
+
+WebApplicationContext 로 끝나는 2개의 클래스는 스프링 MVC를 이용해서 웹 어플리케이션을 개발할 때 사용한다. 두 WebApplicationContext 클래스를 코드에서 직접 사용할 일은 없으며, web.xml과 같은 웹 어플리케이션 설정 파일에서 간접적으로 사용하게 된다.
+
+#### GenericXmlApplicationContext 설정 파일 지정 
+
+* GenericXmlApplicationContext 생성자에 전달하면 되며, 생성자 파라미터는 가변인자이므로 한 개 이상의 값을 파라미터로 전달이 가능하다.
+```java
+// 1개 이상의 설정 파일 경로를 값으로 전달 가능
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:/spring-member.xml", "spring:/spring-board.xml", "spring:/datasource.xml");
+```
+* 스프링 설정이 클래스패스 루트가 아닌 다른 곳에 위치한다면, 루트를 기준으로 경로 형식을 입력해준다.
+```java
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:/conf/spring/conf.xml");
+```
+
+* 파일시스템에서 설정 파일을 읽어오고 싶다면, file:접두어를 이용한다.
+```java
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:/conf/spring-*.xml");
+```
+
+* 특정 경로에 있는 모든 xml 파일을 설정파일로 사용할 경우 아스테리크(*)를 사용해서 지정한다.
+```java
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:/conf/spring-*.xml")
+```
+
+
+
