@@ -242,4 +242,39 @@ public class DataSourceProdConfig{
 	...
 }
 ```
+### 6. MessageSource를 이용한 메시지 국제화 처리	
 
+웹 어플리케이션은 화면에 다양한 텍스트 메시지를 출력하는데, 개발해야 할 웹 어플리케이션이 다국어를 지원할 경우 각 언어에 맞는 메시지가 화면에 출력되어야 한다.
+
+스프링은 **메시지의 국제화**를 지원하기 위해 o.s.context.MessageSource 인터페이스를 제공하며, 지역 및 언어에 따라 알맞은 메시지를 구할 수 있는 메서드가 정의되어 있다.
+
+```java
+public interface MessageSource{
+	
+	String getMessage(String code, Object[] args, String defaultMessage, Locale locale);
+
+	String getMessage(String code, Object[] args, Locale locale) throws NoSuchMessageException;
+
+	String getMessage(MessageSourceResovable resolvable, Locale locale) throws NoSuchMessageException;
+}
+```
+
+각 getMessage() 메서드는 Locale에 따라 알맞은 메시지를 리턴해준다. ApplicationContext는 등록된 빈 객체 중에서 이름이 **MessageSource** 타입의 빈 객체를 이용하여 메시지를 가져오기 때문에 스프링 설정 파일에 이름이 'messageSource' 인 빈 객체를 정의해 주어야한다.
+
+```xml
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basename">
+		<value>message.greeting</value>
+	</property>
+</bean>
+```
+
+#### 프로퍼티 파일과 MessageSource
+
+MessageSource 인터페이스에서 주로 사용하는 메서드는 두 가지 이다.
+
+* String getMessage(String code, Object[] args, String defaultMessage, Locale locale)
+
+* String getMessage(String code, Object[] args, Locale locale)
+
+code는 메시지를 식별하기 위한 코드로서, 메시지로 사용될 프로퍼티 파일의 프로퍼티 명과 연결된다.
