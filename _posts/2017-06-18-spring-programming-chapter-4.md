@@ -115,6 +115,7 @@ public class ConfigByEnv{
 public class ConfigByEnv{
 	...
 }
+```
 
 ** @PropertySource 어노테이션은 자바 8의 @Repeatable을 적용하고 있으므로 자바 8 사용 시 @PropertySource 어노테이션을 어러 개 지정이 가능하다.
 
@@ -131,7 +132,7 @@ public class ConfigByEnv{
 
 #### XML에서 프로퍼티 설정 : <context:property-placeholder> 사용
 
-<context:property-placeholder> 태그는 location 속성으로 지정한 프로퍼티 파일로부터 정보를 읽어와 빈 설정에 입력한 플레이스홀더(${프로퍼티명})의 값을 프로퍼티 파일에 존재하는 값으로 변경한다. 플레이스홀더는 ${} 사이에 사용할 프로퍼티 이름을 지정하며, <context:property-placeholder>는 플레이스홀더를 동일한 이름을 값는 프로퍼티의 값으로 치환하므로 XML 설정을 사용한 것과 같은 결과를 생성한다.
+><context:property-placeholder> 태그는 location 속성으로 지정한 프로퍼티 파일로부터 정보를 읽어와 빈 설정에 입력한 플레이스홀더(${프로퍼티명})의 값을 프로퍼티 파일에 존재하는 값으로 변경한다. 플레이스홀더는 ${} 사이에 사용할 프로퍼티 이름을 지정하며, <context:property-placeholder>는 플레이스홀더를 동일한 이름을 값는 프로퍼티의 값으로 치환하므로 XML 설정을 사용한 것과 같은 결과를 생성한다.
 
 ##### <context:property-placeholder> 태그에서 제공하는 주요 속성
 
@@ -142,7 +143,7 @@ public class ConfigByEnv{
 * ignore-unresolvable
 	이 값이 true면, 플레이스홀더에 일치하는 프로퍼티가 없어도 익셉션을 발생시키지 않는다. false면 플레이스홀더와 일치하는 프로퍼티가 없을 경우 익셉션을 발생시킨다(기본 false)
 
-<context:property-placeholder> 태그는 내부적으로 PropertySourcesPlaceholderConfigurer를 빈으로 등록하며, PropertySourcesPlaceholderConfigurer는 location으로 지정한 파일에서 프로퍼티 값을 찾을 수 없는 경우 Enviornment의 프로퍼티를 확인하며, Enviornment가 해당 프로퍼티를 갖고 있으면 그 값을 사용한다.
+><context:property-placeholder> 태그는 내부적으로 PropertySourcesPlaceholderConfigurer를 빈으로 등록하며, PropertySourcesPlaceholderConfigurer는 location으로 지정한 파일에서 프로퍼티 값을 찾을 수 없는 경우 Enviornment의 프로퍼티를 확인하며, Enviornment가 해당 프로퍼티를 갖고 있으면 그 값을 사용한다.
 
 주의점은 전체 설정에서 이 태그를 두 번 이상 사용할 경우, 첫번째로 사용한 태그의 값이 우선순위를 갖게 된다.
 
@@ -164,7 +165,9 @@ public class ConfigByEnv{
 	true를 전달하면, 자원을 발견할 수 없어도 익셉션을 발생하지 않고 무시한다.
 * setIgnoreUnresolvablePlaceholders(boolean b)
 	true를 전달하면, 플레이스홀더에 해당하는 프로퍼티를 발견할 수 없어도 익셉션을 발생하지 않고 무시한다.
-	
+
+### 5. 프로필을 이용한 프로퍼티 설정	
+
 
 
 
