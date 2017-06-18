@@ -130,11 +130,11 @@ public class ConfigByEnv{
 
 프로퍼티 파일 내용을 XMl과 자바 설정(Enviornment)없이 직접 사용하는 방법
 
-#### XML에서 프로퍼티 설정 : <context:property-placeholder> 사용
+#### XML에서 프로퍼티 설정 : ```<context:property-placeholder>``` 사용
 
-><context:property-placeholder> 태그는 location 속성으로 지정한 프로퍼티 파일로부터 정보를 읽어와 빈 설정에 입력한 플레이스홀더(${프로퍼티명})의 값을 프로퍼티 파일에 존재하는 값으로 변경한다. 플레이스홀더는 ${} 사이에 사용할 프로퍼티 이름을 지정하며, <context:property-placeholder>는 플레이스홀더를 동일한 이름을 값는 프로퍼티의 값으로 치환하므로 XML 설정을 사용한 것과 같은 결과를 생성한다.
+```<context:property-placeholder>``` 태그는 location 속성으로 지정한 프로퍼티 파일로부터 정보를 읽어와 빈 설정에 입력한 플레이스홀더(${프로퍼티명})의 값을 프로퍼티 파일에 존재하는 값으로 변경한다. 플레이스홀더는 ${} 사이에 사용할 프로퍼티 이름을 지정하며, ```<context:property-placeholder>```는 플레이스홀더를 동일한 이름을 값는 프로퍼티의 값으로 치환하므로 XML 설정을 사용한 것과 같은 결과를 생성한다.
 
-##### <context:property-placeholder> 태그에서 제공하는 주요 속성
+##### ```<context:property-placeholder>``` 태그에서 제공하는 주요 속성
 
 * file-encoding
 	파일을 읽어올 때 사용할 인코디을 지정한다. 이 값이 없으면, 자바 프로퍼티 파일 인코딩을 따른다(JDK에서 제공하는 native2ascii 도구를 이용해서 생성 가능한 인코딩)
@@ -143,7 +143,7 @@ public class ConfigByEnv{
 * ignore-unresolvable
 	이 값이 true면, 플레이스홀더에 일치하는 프로퍼티가 없어도 익셉션을 발생시키지 않는다. false면 플레이스홀더와 일치하는 프로퍼티가 없을 경우 익셉션을 발생시킨다(기본 false)
 
-><context:property-placeholder> 태그는 내부적으로 PropertySourcesPlaceholderConfigurer를 빈으로 등록하며, PropertySourcesPlaceholderConfigurer는 location으로 지정한 파일에서 프로퍼티 값을 찾을 수 없는 경우 Enviornment의 프로퍼티를 확인하며, Enviornment가 해당 프로퍼티를 갖고 있으면 그 값을 사용한다.
+```<context:property-placeholder>``` 태그는 내부적으로 PropertySourcesPlaceholderConfigurer를 빈으로 등록하며, PropertySourcesPlaceholderConfigurer는 location으로 지정한 파일에서 프로퍼티 값을 찾을 수 없는 경우 Enviornment의 프로퍼티를 확인하며, Enviornment가 해당 프로퍼티를 갖고 있으면 그 값을 사용한다.
 
 주의점은 전체 설정에서 이 태그를 두 번 이상 사용할 경우, 첫번째로 사용한 태그의 값이 우선순위를 갖게 된다.
 

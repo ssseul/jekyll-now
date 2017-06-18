@@ -46,7 +46,7 @@ Spring Programming의 Chapter 1 에서 중요한 부분 정리
 
 메이븐 프로젝트에서 모듈을 사용하려면 사용할 모듈명과 버전을 의존 설정에 추가해준다.
 
-```
+```xml
 <dependencies>
  	<dependency>
  		<groupId>org.springframework</groupId>
