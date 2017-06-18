@@ -168,7 +168,78 @@ public class ConfigByEnv{
 
 ### 5. 프로필을 이용한 프로퍼티 설정	
 
+보통 로컬 개발 환경, 통합 테스트 환경, 실제 운영 환경은 DB IP 정보, 디렉토리 경로, 외부 서비스 URL 등이 동일하지 않다. 
 
+각 환경에 맞는 설정 정보를 따로 만들어 환경에 따라 알맞은 설정 정보를 사용하기 위해 스프링의 프로필을 이용한다. 환경에 따 따라 설정 정보를 만들어 각각 별도의 프로필 명을 부여하고 환경에 알맞은 프로필을 선택하면 환경에 따른 설정을 사용할 수 있다.
 
+#### XML 설정에서 프로필 사용
 
+```<beans>``` 태그의 profile 속성을 이용해서 프로필 명을 지정한다.
+
+```xml
+-- dataSource-dev.xml 파일
+<beans xmlns="http://springframework.org/schema/beans"
+	xmlns:xsi="http://wwww.w3.org/2001/XMLSchema-instance"
+	..... profile="dev">
+...
+</beans>
+
+--- dataSource-prod.xml 파일
+<beans xmlns="http://springframework.org/schema/beans"
+	xmlns:xsi="http://wwww.w3.org/2001/XMLSchema-instance"
+	..... profile="prod">
+...
+</beans>
+```
+
+각 설정파일이 같은 이름의 빈 객체를 설정하고 있고 ```<beans>```태그의 profile 속성을 "dev"와 "prod"를 값으로 가지고 있다.
+특정 프로필을 선택하라면 **ConfigurableEnviornment에 정의되어 있는 setActiveProfiles() 메서드를 이용한다.**
+
+```java
+GenericXmlApplicationContext context = new GenericXmlApplicationContext();
+context.getEnviornment().setActiveProfiles("dev");
+...
+context.refresh();
+```
+
+#### 자바 @Configuration 설정에서 프로필 사용
+
+@Profile 어노테이션을 이용한다.
+
+```java
+@Configuration
+@Profile("prod")
+public class DataSourceProdConfig{
+	
+	@Bean
+	public JndiConnectorProvider connProvider(){
+		JndiConnectorProvider connectionProvider = new.JndiConnectionProvider();
+		connectionProvider.setJndiName("java:/comp/env/jdbc/db")
+		return connectionProvider;
+	}
+}
+```
+
+활성화하는 방법은 setActiveProfiles() 메서드를 이용하거나 spring.profiles.active 시스템 프로퍼티에 값을 설정해준다.
+
+#### 다수 프로필 사용
+
+스프링 설정은 두 개 이상의 프로필 이름을 가질 수 있다.
+
+```xml
+-- dataSource-dev.xml 파일
+<beans xmlns="http://springframework.org/schema/beans"
+	xmlns:xsi="http://wwww.w3.org/2001/XMLSchema-instance"
+	..... profile="prod,QA">
+...
+</beans>
+```
+
+```java
+@Configuration
+@Profile("prod,QA")
+public class DataSourceProdConfig{
+	...
+}
+```
 
