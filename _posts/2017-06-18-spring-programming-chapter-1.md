@@ -4,7 +4,7 @@ layout: post
 ---
 # Spring Programming Chapter 1 정리
 ---------------------------------------------------
-Spring Programming의 Chapter 1 에서 중요한 부분 정리 
+Spring Programming의 Chapter 1 에서 중요한 부분 정리
 
 # Chapter 1
 
